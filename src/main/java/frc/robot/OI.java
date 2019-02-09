@@ -11,12 +11,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.Forward;
-<<<<<<< HEAD
-=======
-import frc.robot.commands.Lifterino;
-import frc.robot.commands.Lifterinoooooo;
-import frc.robot.commands.Lifttest;
->>>>>>> e26810e2f2965f8852a5cd1a67c4eec6d92fad80
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -32,8 +26,8 @@ public class OI {
 
   public OI() {
     button.toggleWhenPressed(new Forward());
-    up.whenPressed(new Lifterino());
-    down.whenPressed(new Lifterinoooooo());
+    //up.whenPressed(new Lifterino());
+    //cdown.whenPressed(new Lifterinoooooo());
   };
  
   // CREATING BUTTONS
