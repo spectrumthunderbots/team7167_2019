@@ -9,20 +9,21 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-
+//import frc.robot.subsystems.Pneumatics
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ExampleCommand extends Command {
-  public ExampleCommand() {
+public class Selenoid extends Command {
+  public Selenoid() {
     // Use requires() here to declare subsystem dependencies
-   // requires(Robot.m_subsystem);
+    //requires(Robot.Pnuematics);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-  }
+    //Robot.Pnuematics.Up();
+  } 
 
   // Called repeatedly when this Command is scheduled to run
   @Override
