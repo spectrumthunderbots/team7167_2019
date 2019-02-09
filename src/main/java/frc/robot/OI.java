@@ -11,8 +11,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.Forward;
-
-
+import frc.robot.commands.Lifterino;
+import frc.robot.commands.Lifterinoooooo;
+import frc.robot.commands.Lifttest;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -23,11 +24,13 @@ public class OI {
   public Joystick stick = new Joystick(RobotMap.controller);
 
   Button button = new JoystickButton(stick, 7);
-
-  
+  Button up = new JoystickButton(stick, 1);
+  Button down = new JoystickButton(stick, 2);
 
   public OI() {
     button.toggleWhenPressed(new Forward());
+    up.whenPressed(new Lifterino());
+    down.whenPressed(new Lifterinoooooo());
   };
  
   // CREATING BUTTONS
