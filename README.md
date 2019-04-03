@@ -1,3 +1,3 @@
 Spectrum Thunder Bots (Team7167) 2019
 
-Includes all files to deploy code  on a external computer.
+Code got messed with a bunch at competition but is still mostly intact.
