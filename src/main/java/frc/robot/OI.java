@@ -7,36 +7,48 @@
 
 package frc.robot;
 
-/**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
- */
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.Claw_In;
+import frc.robot.commands.Claw_Out;
+import frc.robot.commands.DriveSlow;
+import frc.robot.commands.Group_Fold;
+import frc.robot.commands.Group_Unfold;
+import frc.robot.commands.Lift_Down;
+import frc.robot.commands.Lift_Up;
+import frc.robot.commands.Piston_Down;
+import frc.robot.commands.Piston_Up;
+
+
 public class OI {
-  //// CREATING BUTTONS
-  // One type of button is a joystick button which is any button on a
-  //// joystick.
-  // You create one by telling it which joystick it's on and which button
-  // number it is.
-  // Joystick stick = new Joystick(port);
-  // Button button = new JoystickButton(stick, buttonNumber);
 
-  // There are a few additional built in buttons you can use. Additionally,
-  // by subclassing Button you can create custom triggers and bind those to
-  // commands the same as any other Button.
+  public Joystick stick = new Joystick(RobotMap.controller);
 
-  //// TRIGGERING COMMANDS WITH BUTTONS
-  // Once you have a button, it's trivial to bind it to a button in one of
-  // three ways:
+  Button piston_Up = new JoystickButton(stick, RobotMap.button_Start);
+  Button piston_Down = new JoystickButton(stick, RobotMap.button_Back);
 
-  // Start the command when the button is pressed and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenPressed(new ExampleCommand());
+  Button claw_In = new JoystickButton(stick, RobotMap.button_RightBumper);
+  Button claw_Out = new JoystickButton(stick, RobotMap.button_LeftBumper);
 
-  // Run the command while the button is being held down and interrupt it once
-  // the button is released.
-  // button.whileHeld(new ExampleCommand());
+  Button lift_Up = new JoystickButton(stick, RobotMap.button_Y);
+  Button lift_Down = new JoystickButton(stick, RobotMap.button_A);
 
-  // Start the command when the button is released and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenReleased(new ExampleCommand());
+  Button tog = new JoystickButton(stick, RobotMap.button_B);
+
+  public OI() {
+
+    piston_Up.whenPressed(new Group_Unfold());
+    piston_Down.whenPressed(new Group_Fold());
+
+    claw_In.whileHeld(new Claw_In());
+    claw_Out.whileHeld(new Claw_Out());
+
+    lift_Up.whileHeld(new Lift_Up());
+    lift_Down.whileHeld(new Lift_Down());
+
+    tog.toggleWhenPressed(new ArcadeDrive());
+
+  }
 }
